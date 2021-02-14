@@ -33,7 +33,7 @@ export default function Checkout() {
   return (
     <>
       <Head />
-      <Navigation cart={cart} />
+      {/* <Navigation cart={cart} /> */}
 
       <div
         className="container"
@@ -94,7 +94,7 @@ export default function Checkout() {
         </li>
       </div>
 
-      {/* {cart && cart.length > 2 ? <Footer /> : <Footer window="fixed" />} */}
+      {cart && cart.length > 2 ? <Footer /> : <Footer window="fixed" />}
     </>
   );
 }
