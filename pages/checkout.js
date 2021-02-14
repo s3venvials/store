@@ -104,7 +104,7 @@ export default function Checkout() {
         </li>
       </div>
 
-      {cart && cart.length > 2 ? <Footer /> : <Footer window="fixed" />}
+      <Footer />
     </>
   );
 }
