@@ -22,6 +22,10 @@ export default function Home() {
       .then((json) => setData(json));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  });
+
   const addToCart = (item) => {
     let temp = [...cart];
     temp.push(item);
@@ -40,7 +44,7 @@ export default function Home() {
           {data.length ? (
             data.map((item, index) => {
               return (
-                <div className="col-lg-3 col-sm-6" key={index}>
+                <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                   <Product
                     image={item.image}
                     category={item.category}
@@ -48,6 +52,7 @@ export default function Home() {
                     description={item.description}
                     price={item.price}
                     item={item}
+                    id={index}
                     addToCart={addToCart}
                   />
                 </div>

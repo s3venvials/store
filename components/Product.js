@@ -1,9 +1,10 @@
+import { useRouter } from "next/router";
+
 export default function Product(props) {
+  const router = useRouter();
   const addToCart = (item) => {
     props.addToCart(item);
   };
-
-  console.log(window.innerWidth);
 
   return (
     <div
@@ -21,7 +22,19 @@ export default function Product(props) {
         <p className="card-text">{props.description.slice(0, 100)}...</p>
         <p>Price: ${props.price}</p>
         <button
-          className="btn btn-primary"
+          className="btn btn-outline-secondary"
+          onClick={() =>
+            router.push(
+              "/product/[item]/[id]",
+              `/product/${props.title}/${props.id}`,
+              { title: props.title }
+            )
+          }
+        >
+          View
+        </button>{" "}
+        <button
+          className="btn btn-outline-primary"
           onClick={() => addToCart(props.item)}
         >
           Add To Cart

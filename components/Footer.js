@@ -1,13 +1,13 @@
-export default function Footer() {
+export default function Footer(props) {
   if (typeof window === "undefined") {
     return null;
   }
 
   const classes = {
     class:
-      window.location.pathname === "/"
-        ? "navbar bottom navbar-light bg-light"
-        : "navbar fixed-bottom navbar-light bg-light",
+      props.window === "fixed"
+        ? "navbar fixed-bottom navbar-light bg-light"
+        : "navbar bottom navbar-light bg-light",
   };
 
   return (
