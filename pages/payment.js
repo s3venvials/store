@@ -47,7 +47,7 @@ export default function Payment() {
                     <img src={item.image} width={52} />
                   </div>
                   <div className="col-sm-2">{item.title}</div>
-                  <div className="col-sm-2">{item.price}</div>
+                  <div className="col-sm-2">${item.price}</div>
                 </div>
                 <hr />
               </div>
