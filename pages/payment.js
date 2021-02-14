@@ -21,7 +21,8 @@ export default function Payment() {
         }
         setTotal(sum.toFixed(2));
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       console.log("Error getting payment total.");
     }
   });
@@ -57,7 +58,7 @@ export default function Payment() {
           style={{ maxWidth: "600px", marginTop: "2em", marginBottom: "2em" }}
         >
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Email
             </label>
             <input
@@ -68,7 +69,7 @@ export default function Payment() {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Name On Card
             </label>
             <input
@@ -79,7 +80,7 @@ export default function Payment() {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Credit Card #
             </label>
             <input
@@ -89,7 +90,7 @@ export default function Payment() {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleFormControlInput1" className="form-label">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               CSV
             </label>
             <input

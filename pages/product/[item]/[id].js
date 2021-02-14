@@ -15,16 +15,20 @@ export default function ProductView() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCart(JSON.parse(localStorage.getItem("cart")));
-      setData(JSON.parse(localStorage.getItem("data")));
+      setCart([...JSON.parse(localStorage.getItem("cart"))]);
+      setData([...JSON.parse(localStorage.getItem("data"))]);
     }
   }, []);
 
   const addToCart = (item) => {
-    let temp = [...cart];
-    temp.push(item);
-    setCart([...temp]);
-    localStorage.setItem([..."cart", JSON.stringify(temp)]);
+    try {
+      let temp = [...cart];
+      temp.push(item);
+      setCart([...temp]);
+      localStorage.setItem("cart", JSON.stringify(temp));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

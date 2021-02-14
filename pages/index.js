@@ -14,8 +14,9 @@ export default function Home() {
   useEffect(() => {
     try {
       if (typeof window !== "undefined")
-        setCart(JSON.parse(localStorage.getItem("cart")));
-    } catch {
+        setCart([...JSON.parse(localStorage.getItem("cart"))]);
+    } catch (error) {
+      console.log(error);
       console.log("Error adding items to cart");
     }
   }, []);
@@ -32,7 +33,8 @@ export default function Home() {
   useEffect(() => {
     try {
       localStorage.setItem("data", JSON.stringify(data));
-    } catch {
+    } catch (error) {
+      console.log(error);
       console.log("Error fetching data.");
     }
   });
@@ -42,7 +44,7 @@ export default function Home() {
       let temp = [...cart];
       temp.push(item);
       setCart([...temp]);
-      localStorage.setItem([..."cart", JSON.stringify(temp)]);
+      localStorage.setItem("cart", JSON.stringify(temp));
     } catch (error) {
       console.log(error);
       console.log("Error adding items to cart.");
