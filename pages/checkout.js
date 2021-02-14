@@ -11,7 +11,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCart([...JSON.parse(localStorage.getItem("cart"))]);
+      setCart(JSON.parse(localStorage.getItem("cart")));
     }
   }, []);
 
@@ -98,7 +98,7 @@ export default function Checkout() {
         </li>
       </div>
 
-      <Footer window="fixed" />
+      {cart.length > 2 ? <Footer /> : <Footer window="fixed" />}
     </>
   );
 }

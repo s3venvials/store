@@ -9,7 +9,7 @@ export default function Payment() {
 
   useEffect(() => {
     if (typeof window !== "undefined")
-      setCart([...JSON.parse(localStorage.getItem("cart"))]);
+      setCart(JSON.parse(localStorage.getItem("cart")));
   }, []);
 
   useEffect(() => {

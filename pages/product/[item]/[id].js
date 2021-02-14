@@ -15,8 +15,8 @@ export default function ProductView() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCart([...JSON.parse(localStorage.getItem("cart"))]);
-      setData([...JSON.parse(localStorage.getItem("data"))]);
+      setCart(JSON.parse(localStorage.getItem("cart")));
+      setData(JSON.parse(localStorage.getItem("data")));
     }
   }, []);
 
