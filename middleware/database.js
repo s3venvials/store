@@ -6,11 +6,11 @@ const client = new MongoClient("mongodb://localhost:27017/Store", {
   useUnifiedTopology: true,
 });
 
-const database = (req, res, next) => {
-    if (!client.isConnected()) await client.connect();
-    req.dbClient = client;
-    req.db = client.db('Test');
-    return next();
+const database = async (req, res, next) => {
+  if (!client.isConnected()) await client.connect();
+  req.dbClient = client;
+  req.db = client.db("Store");
+  return next();
 };
 
 const middleware = nextConnect();
