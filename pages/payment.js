@@ -15,7 +15,7 @@ export default function Payment() {
   useEffect(() => {
     try {
       let sum = 0;
-      if (cart.length) {
+      if (cart && cart.length) {
         for (var i = 0; i < cart.length; i++) {
           sum += cart[i].price;
         }
