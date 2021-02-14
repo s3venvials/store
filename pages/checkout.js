@@ -28,6 +28,8 @@ export default function Checkout() {
           sum += cart[i].price;
         }
         setTotal(sum.toFixed(2));
+      } else {
+        setTotal(0);
       }
     } catch (error) {
       console.log(error);
