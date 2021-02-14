@@ -13,11 +13,17 @@ export default function Payment() {
   }, []);
 
   useEffect(() => {
-    let sum = 0;
-    for (var i = 0; i < cart.length; i++) {
-      sum += cart[i].price;
+    try {
+      let sum = 0;
+      if (cart.length) {
+        for (var i = 0; i < cart.length; i++) {
+          sum += cart[i].price;
+        }
+        setTotal(sum.toFixed(2));
+      }
+    } catch {
+      console.log("Error getting payment total.");
     }
-    setTotal(sum.toFixed(2));
   });
 
   return (

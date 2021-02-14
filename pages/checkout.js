@@ -22,10 +22,12 @@ export default function Checkout() {
   useEffect(() => {
     try {
       let sum = 0;
-      for (var i = 0; i < cart.length; i++) {
-        sum += cart[i].price;
+      if (cart.length) {
+        for (var i = 0; i < cart.length; i++) {
+          sum += cart[i].price;
+        }
+        setTotal(sum.toFixed(2));
       }
-      setTotal(sum.toFixed(2));
     } catch {
       console.log("Error setting cart total.");
     }
