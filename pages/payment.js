@@ -28,23 +28,24 @@ export default function Payment() {
       <div className="container" style={{ marginTop: "2em" }}>
         <h3>Payment</h3>
         <hr />
-        {cart.map((item, index) => {
-          return (
-            <div key={index}>
-              <div
-                className="row"
-                style={{ marginBottom: "1em", marginLeft: "1em" }}
-              >
-                <div className="col-sm-1" style={{ marginBottom: "0.5em" }}>
-                  <img src={item.image} width={52} />
+        {cart &&
+          cart.map((item, index) => {
+            return (
+              <div key={index}>
+                <div
+                  className="row"
+                  style={{ marginBottom: "1em", marginLeft: "1em" }}
+                >
+                  <div className="col-sm-1" style={{ marginBottom: "0.5em" }}>
+                    <img src={item.image} width={52} />
+                  </div>
+                  <div className="col-sm-2">{item.title}</div>
+                  <div className="col-sm-2">{item.price}</div>
                 </div>
-                <div className="col-sm-2">{item.title}</div>
-                <div className="col-sm-2">{item.price}</div>
+                <hr />
               </div>
-              <hr />
-            </div>
-          );
-        })}
+            );
+          })}
 
         <form
           style={{ maxWidth: "600px", marginTop: "2em", marginBottom: "2em" }}

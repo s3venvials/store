@@ -7,7 +7,6 @@ export default function Navigation(props) {
 
   useEffect(() => {
     if (props.cart !== null) {
-      console.log(props.cart.length);
       setTotal(props.cart.length);
     }
   }, [props.cart]);

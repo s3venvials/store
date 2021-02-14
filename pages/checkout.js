@@ -30,16 +30,6 @@ export default function Checkout() {
     localStorage.setItem("cart", JSON.stringify(temp));
   };
 
-  const styles = {
-    container: {
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "800px",
-    },
-  };
-
   return (
     <>
       <Head />
@@ -51,36 +41,42 @@ export default function Checkout() {
       >
         <h3>Check Out</h3>
         <hr />
-        {cart.map((item, index) => {
-          return (
-            <div key={index}>
-              <div
-                className="row"
-                style={{ marginBottom: "1em", marginLeft: "1em" }}
-              >
-                <div className="col-sm-3" style={{ marginBottom: "0.5em" }}>
-                  <img src={item.image} width={52} />
+        {cart === null ? (
+          <div></div>
+        ) : (
+          cart.map((item, index) => {
+            return (
+              <div key={index}>
+                <div
+                  className="row"
+                  style={{ marginBottom: "1em", marginLeft: "1em" }}
+                >
+                  <div className="col-sm-3" style={{ marginBottom: "0.5em" }}>
+                    <img src={item.image} width={52} />
+                  </div>
+                  <div className="col-sm-3">{item.title}</div>
+                  <div className="col-sm-3">
+                    <button className="btn" onClick={() => deleteItem(index)}>
+                      <img
+                        src="https://res.cloudinary.com/frontndev/image/upload/v1613326650/trash-can_nlylek.png"
+                        alt="trash-can"
+                      />
+                    </button>
+                  </div>
+                  <div className="col-sm-3" style={{ textAlign: "right" }}>
+                    {item.price}
+                  </div>
                 </div>
-                <div className="col-sm-3">{item.title}</div>
-                <div className="col-sm-3">
-                  <button className="btn" onClick={() => deleteItem(index)}>
-                    <img
-                      src="https://res.cloudinary.com/frontndev/image/upload/v1613326650/trash-can_nlylek.png"
-                      alt="trash-can"
-                    />
-                  </button>
-                </div>
-                <div className="col-sm-3" style={{ textAlign: "right" }}>
-                  {item.price}
-                </div>
+                <hr />
               </div>
-              <hr />
-            </div>
-          );
-        })}
+            );
+          })
+        )}
 
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          {cart.length ? (
+          {cart === null ? (
+            <div></div>
+          ) : cart.length ? (
             <button
               type="submit"
               className="btn btn-primary"
@@ -98,7 +94,7 @@ export default function Checkout() {
         </li>
       </div>
 
-      {cart.length > 2 ? <Footer /> : <Footer window="fixed" />}
+      {cart && cart.length > 2 ? <Footer /> : <Footer window="fixed" />}
     </>
   );
 }
