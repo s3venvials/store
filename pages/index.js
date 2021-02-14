@@ -41,12 +41,10 @@ export default function Home() {
 
   const addToCart = (item) => {
     try {
-      if (cart && cart.length) {
-        let temp = [...cart];
-        temp.push(item);
-        setCart([...temp]);
-        localStorage.setItem("cart", JSON.stringify(temp));
-      }
+      let temp = [...cart];
+      temp.push(item);
+      setCart([...temp]);
+      localStorage.setItem("cart", JSON.stringify(temp));
     } catch (error) {
       console.log(error);
       console.log("Error adding items to cart.");
