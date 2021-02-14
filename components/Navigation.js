@@ -7,7 +7,7 @@ export default function Navigation(props) {
       <div className="container-fluid">
         <a
           className="navbar-brand"
-          href="/"
+          onClick={() => router.push("/")}
           style={{ color: "red", fontSize: 26 }}
         >
           Frontier
