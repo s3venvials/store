@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function Header() {
   return (
     <Head>
-      <title>Kix</title>
+      <title>Frontier</title>
       <link rel="icon" href="/favicon.ico" />
       <meta
         name="viewport"
