@@ -14,7 +14,8 @@ export default function Checkout() {
       if (typeof window !== "undefined") {
         setCart(JSON.parse(localStorage.getItem("cart")));
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       console.log("Erro updating cart");
     }
   }, []);
@@ -28,7 +29,8 @@ export default function Checkout() {
         }
         setTotal(sum.toFixed(2));
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       console.log("Error setting cart total.");
     }
   });
@@ -84,7 +86,7 @@ export default function Checkout() {
         )}
 
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          {cart.length ? (
+          {cart && cart.length ? (
             <button
               type="submit"
               className="btn btn-primary"
