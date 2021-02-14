@@ -24,7 +24,7 @@ export default function ProductView() {
     let temp = [...cart];
     temp.push(item);
     setCart([...temp]);
-    localStorage.setItem("cart", JSON.stringify(temp));
+    localStorage.setItem([..."cart", JSON.stringify(temp)]);
   };
 
   useEffect(() => {
