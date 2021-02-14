@@ -43,7 +43,8 @@ export default function Home() {
       temp.push(item);
       setCart([...temp]);
       localStorage.setItem([..."cart", JSON.stringify(temp)]);
-    } catch {
+    } catch (error) {
+      console.log(error);
       console.log("Error adding items to cart.");
     }
   };
