@@ -12,25 +12,40 @@ export default function Home() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== "undefined")
-      setCart(JSON.parse(localStorage.getItem("cart")));
+    try {
+      if (typeof window !== "undefined")
+        setCart(JSON.parse(localStorage.getItem("cart")));
+    } catch {
+      console.log("Error adding items to cart");
+    }
   }, []);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setData(json));
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
+    try {
+      localStorage.setItem("data", JSON.stringify(data));
+    } catch {
+      console.log("Error fetching data.");
+    }
   });
 
   const addToCart = (item) => {
-    let temp = [...cart];
-    temp.push(item);
-    setCart([...temp]);
-    localStorage.setItem("cart", JSON.stringify(temp));
+    try {
+      let temp = [...cart];
+      temp.push(item);
+      setCart([...temp]);
+      localStorage.setItem("cart", JSON.stringify(temp));
+    } catch {
+      console.log("Error adding items to cart.");
+    }
   };
 
   return (
@@ -40,28 +55,32 @@ export default function Home() {
       <Banner />
 
       <div className="container">
-        <div className="row">
-          {data.length ? (
-            data.map((item, index) => {
-              return (
-                <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
-                  <Product
-                    image={item.image}
-                    category={item.category}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    item={item}
-                    id={index}
-                    addToCart={addToCart}
-                  />
-                </div>
-              );
-            })
-          ) : (
-            <Loader />
-          )}
-        </div>
+        {data === null ? (
+          <div></div>
+        ) : (
+          <div className="row">
+            {data.length ? (
+              data.map((item, index) => {
+                return (
+                  <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
+                    <Product
+                      image={item.image}
+                      category={item.category}
+                      title={item.title}
+                      description={item.description}
+                      price={item.price}
+                      item={item}
+                      id={index}
+                      addToCart={addToCart}
+                    />
+                  </div>
+                );
+              })
+            ) : (
+              <Loader />
+            )}
+          </div>
+        )}
       </div>
 
       <Footer />

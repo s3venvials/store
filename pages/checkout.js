@@ -102,17 +102,3 @@ export default function Checkout() {
     </>
   );
 }
-
-//trash can icon
-{
-  /* <div>
-  Icons made by{" "}
-  <a href="" title="DinosoftLabs">
-    DinosoftLabs
-  </a>{" "}
-  from{" "}
-  <a href="https://www.flaticon.com/" title="Flaticon">
-    www.flaticon.com
-  </a>
-</div>; */
-}
