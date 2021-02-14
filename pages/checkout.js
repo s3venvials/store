@@ -10,17 +10,25 @@ export default function Checkout() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCart(JSON.parse(localStorage.getItem("cart")));
+    try {
+      if (typeof window !== "undefined") {
+        setCart(JSON.parse(localStorage.getItem("cart")));
+      }
+    } catch {
+      console.log("Erro updating cart");
     }
   }, []);
 
   useEffect(() => {
-    let sum = 0;
-    for (var i = 0; i < cart.length; i++) {
-      sum += cart[i].price;
+    try {
+      let sum = 0;
+      for (var i = 0; i < cart.length; i++) {
+        sum += cart[i].price;
+      }
+      setTotal(sum.toFixed(2));
+    } catch {
+      console.log("Error setting cart total.");
     }
-    setTotal(sum.toFixed(2));
   });
 
   const deleteItem = (index) => {
@@ -33,7 +41,7 @@ export default function Checkout() {
   return (
     <>
       <Head />
-      {/* <Navigation cart={cart} /> */}
+      <Navigation cart={cart} />
 
       <div
         className="container"
