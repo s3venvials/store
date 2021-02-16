@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import useWindowDimensions from "../utils/window";
+import Search from "./Search";
 
 export default function Navigation(props) {
   const router = useRouter();
   const [total, setTotal] = useState(0);
+  const window = useWindowDimensions();
 
   useEffect(() => {
     if (props.cart !== null) {
@@ -22,8 +25,11 @@ export default function Navigation(props) {
           Frontier
         </a>
 
+        {window.width > 900 && <Search />}
+
         <div id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
           <button
             type="button"
             className="btn btn-outline-light"

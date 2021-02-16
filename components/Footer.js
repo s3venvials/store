@@ -27,6 +27,7 @@ export default function Footer(props) {
                 Unsplash{" "}
               </a>{" "}
             </p>
+            <hr />
           </div>
           <div className="col-lg-4">
             <p>Carosel: Electronics</p>
@@ -40,6 +41,7 @@ export default function Footer(props) {
                 Unsplash
               </a>
             </p>
+            <hr />
           </div>
           <div className="col-lg-4">
             <p>Carosel: Jewerly</p>
@@ -53,11 +55,12 @@ export default function Footer(props) {
                 Unsplash
               </a>
             </p>
+            <hr />
           </div>
           <div className="col-lg-4">
             <p>Icon: Shopping cart</p>
             <p>
-              <div>
+              <span>
                 Icons made by{" "}
                 <a href="https://www.freepik.com" title="Freepik">
                   Freepik
@@ -66,8 +69,28 @@ export default function Footer(props) {
                 <a href="https://www.flaticon.com/" title="Flaticon">
                   www.flaticon.com
                 </a>
-              </div>
+              </span>
             </p>
+          </div>
+          <div className="col-lg-4">
+            <p>Icon: Search icon</p>
+            <span>
+              Icons made by{" "}
+              <a href="" title="Dimitry Miroliubov">
+                Dimitry Miroliubov
+              </a>{" "}
+              from{" "}
+              <a href="https://www.flaticon.com/" title="Flaticon">
+                www.flaticon.com
+              </a>
+            </span>
+          </div>
+          <div className="col-lg-4">
+            Copy Right All Rights Reserved Frontier 2021
+            <br />
+            Address: 1234 Main Ave Phoenix, AZ 85005
+            <br />
+            Tel: 555-555-1111
           </div>
         </div>
       </div>

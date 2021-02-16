@@ -6,10 +6,13 @@ import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
+import useWindowDimensions from "../utils/window";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [cart, setCart] = useState([]);
+  const window = useWindowDimensions();
 
   useEffect(() => {
     try {
@@ -55,6 +58,7 @@ export default function Home() {
     <>
       <Head />
       <Navigation cart={cart} />
+      {window.width < 900 && <Search />}
       <Banner />
 
       <div className="container">
